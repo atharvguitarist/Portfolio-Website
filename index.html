@@ -43,8 +43,8 @@ p{margin:0 0 1em}
   background:radial-gradient(1000px 460px at 10% -14%,rgba(31,53,214,.3),transparent 64%),
              radial-gradient(680px 340px at 98% 4%,rgba(255,168,31,.08),transparent 70%)}
 .hero>*{position:relative;z-index:1}
-.topbar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0 0;flex-wrap:wrap}
-.mark{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:22px;letter-spacing:-0.025em}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:20px 28px;padding:18px 0 0;flex-wrap:wrap}
+.mark{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:31px;letter-spacing:-0.035em;line-height:1}
 .nav{display:flex;gap:24px;flex-wrap:wrap}
 .nav a{position:relative;text-decoration:none;color:var(--mute-d);font-size:14.5px;padding-bottom:5px;transition:color .22s}
 .nav a::after{content:"";position:absolute;left:0;bottom:0;height:1.5px;width:0;background:var(--amber);transition:width .3s cubic-bezier(.2,.7,.3,1)}
@@ -325,17 +325,26 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
 .foot{margin-top:54px;padding-top:22px;border-top:1px solid var(--graphite-2);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--mute-d)}
 
 /* ════ CAT ════ */
-#pal{position:fixed;right:24px;bottom:24px;z-index:80;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+#pal{position:fixed;right:24px;bottom:0;z-index:80;display:flex;flex-direction:column;align-items:flex-end;gap:10px;pointer-events:none}
+#pal>*{pointer-events:auto}
 #bubble{max-width:230px;background:var(--graphite);color:var(--paper);border:1px solid var(--graphite-3);border-radius:12px 12px 4px 12px;padding:12px 15px;font-size:13.4px;line-height:1.45;box-shadow:0 14px 34px rgba(21,23,26,.3);opacity:0;transform:translateY(7px) scale(.96);transition:opacity .3s,transform .3s;pointer-events:none;transform-origin:bottom right}
 #bubble.on{opacity:1;transform:none}
-#palbtn{width:92px;height:92px;padding:0;border:none;background:none;cursor:pointer;filter:drop-shadow(0 12px 24px rgba(21,23,26,.26));transition:transform .35s cubic-bezier(.2,.7,.3,1)}
-#palbtn:hover{transform:translateY(-5px)}
-#palbtn:active{transform:translateY(-1px) scale(.97)}
+#bubble{margin-bottom:4px}
+#palbtn{
+  width:104px;height:104px;padding:0;border:none;background:none;cursor:pointer;
+  margin-bottom:-10px;                 /* sits on the edge: body visible, base just clipped */
+  filter:drop-shadow(0 -4px 14px rgba(21,23,26,.3));
+}
 #palbtn svg{width:100%;height:100%;display:block;overflow:visible}
 #head{transition:transform .42s cubic-bezier(.2,.8,.3,1);transform-origin:50px 64px}
 #pupils{transition:transform .22s ease-out}
 #eyes{transition:transform .1s;transform-origin:50px 46px}
 #cat.blink #eyes{transform:scaleY(.08)}
+#whiskL,#whiskR,#earL,#earR{transform-box:view-box}
+#whiskL{transform-origin:27px 54px}
+#whiskR{transform-origin:73px 54px}
+#earL{transform-origin:36.5px 50px}
+#earR{transform-origin:63.5px 50px}
 #tail{transform-origin:68px 86px;animation:sway 3.6s ease-in-out infinite}
 @keyframes sway{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(9deg)}}
 
@@ -363,7 +372,7 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
   .xp-rail{display:none}
   .nav{gap:15px}
   .nav a{font-size:13px}
-  .mark{font-size:19px}
+  .mark{font-size:24px}
   .ev{grid-template-columns:1fr;gap:16px}
   .ev-ic{grid-row:auto}
   .ev-body{grid-column:1}
@@ -371,8 +380,8 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
   .avatar{width:196px;height:196px}
   .avatar-img,.avatar-fb{width:160px;height:160px}
   .avatar-fb{font-size:3rem}
-  #pal{right:12px;bottom:12px}
-  #palbtn{width:70px;height:70px}
+  #pal{right:12px;bottom:0}
+  #palbtn{width:82px;height:82px;margin-bottom:-8px}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -887,7 +896,6 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
     <svg viewBox="0 0 100 100" aria-hidden="true">
       <g id="cat">
         <path id="tail" d="M71 93 q25 -2 21 -23 q-4 -15 -16 -11" fill="none" stroke="#2A2F35" stroke-width="7.5" stroke-linecap="round"/>
-        <ellipse cx="50" cy="99" rx="27" ry="7" fill="#15171A" opacity=".16"/>
         <path d="M27 97 q-3 -27 10 -37 q13 -7 26 0 q13 10 10 37 z" fill="#1B1F23" stroke="#343A41" stroke-width="2" stroke-linejoin="round"/>
         <path d="M50 66 q-8 10 -7 31 h14 q1 -21 -7 -31 z" fill="#242A30"/>
         <path d="M41.5 65.5 L48 68 L46.2 74 Z" fill="#DCD8D0"/>
@@ -898,10 +906,14 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
         <ellipse cx="38" cy="94" rx="8.5" ry="5" fill="#242A30" stroke="#3B434B" stroke-width="1.6"/>
         <ellipse cx="62" cy="94" rx="8.5" ry="5" fill="#242A30" stroke="#3B434B" stroke-width="1.6"/>
         <g id="head">
-          <path d="M30 51 l1 -22 l17 10 z" fill="#1B1F23" stroke="#343A41" stroke-width="2" stroke-linejoin="round"/>
-          <path d="M70 51 l-1 -22 l-17 10 z" fill="#1B1F23" stroke="#343A41" stroke-width="2" stroke-linejoin="round"/>
-          <path d="M34 47 l.7 -13 l10 6 z" fill="#FFA81F" opacity=".3"/>
-          <path d="M66 47 l-.7 -13 l-10 6 z" fill="#FFA81F" opacity=".3"/>
+          <g id="earL">
+            <path d="M30 51 l1 -22 l17 10 z" fill="#1B1F23" stroke="#343A41" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M34 47 l.7 -13 l10 6 z" fill="#FFA81F" opacity=".3"/>
+          </g>
+          <g id="earR">
+            <path d="M70 51 l-1 -22 l-17 10 z" fill="#1B1F23" stroke="#343A41" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M66 47 l-.7 -13 l-10 6 z" fill="#FFA81F" opacity=".3"/>
+          </g>
           <ellipse cx="50" cy="50" rx="24" ry="20" fill="#1B1F23" stroke="#343A41" stroke-width="2"/>
           <g id="eyes">
             <ellipse cx="41" cy="48" rx="5.4" ry="6.2" fill="#FFA81F"/>
@@ -915,7 +927,8 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
           </g>
           <path d="M47.6 57.4 h4.8 l-2.4 2.7 z" fill="#C98693"/>
           <path d="M50 60.1 q-3.2 2.8 -6 .5 M50 60.1 q3.2 2.8 6 .5" fill="none" stroke="#5B646D" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M27 50 l-11 -3 M27 54 l-11 1.5 M27 57.5 l-10 5 M73 50 l11 -3 M73 54 l11 1.5 M73 57.5 l10 5" stroke="#3B434B" stroke-width="1.3" stroke-linecap="round"/>
+          <g id="whiskL"><path d="M27 50 l-11 -3 M27 54 l-11 1.5 M27 57.5 l-10 5" stroke="#3B434B" stroke-width="1.3" stroke-linecap="round" fill="none"/></g>
+          <g id="whiskR"><path d="M73 50 l11 -3 M73 54 l11 1.5 M73 57.5 l10 5" stroke="#3B434B" stroke-width="1.3" stroke-linecap="round" fill="none"/></g>
         </g>
       </g>
     </svg>
@@ -1099,7 +1112,10 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
     hideTimer = setTimeout(function(){ bubble.classList.remove("on"); }, 5400);
   }
   if(btn){
-    btn.addEventListener("click", function(){ li = (li+1) % LINES.length; say(LINES[li]); });
+    btn.addEventListener("click", function(){
+      li = (li+1) % LINES.length; say(LINES[li]);
+      swing += 2.6;                                   /* a click ruffles the whiskers */
+    });
     btn.addEventListener("mouseenter", function(){ if(!bubble.classList.contains("on")) say(LINES[0]); });
   }
 
@@ -1112,8 +1128,48 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
       var d = Math.hypot(dx,dy) || 1;
       var reach = Math.min(d, 320)/320;
       pupils.style.transform = "translate(" + (dx/d*2.8*reach).toFixed(2) + "px," + (dy/d*2.6*reach).toFixed(2) + "px)";
-      head.style.transform = "rotate(" + Math.max(-9, Math.min(9, (dx/320)*11)).toFixed(2) + "deg)";
+      headA = Math.max(-9, Math.min(9, (dx/320)*11));
+      head.style.transform = "rotate(" + headA.toFixed(2) + "deg)";
+      swing += (headA - lastHeadA) * 0.85;
+      lastHeadA = headA;
     }, {passive:true});
+  }
+
+  /* ── secondary motion: whiskers and ears on springs ── */
+  var headA = 0, lastHeadA = 0, swing = 0;
+  if(!reduce){
+    var springs = [
+      { el: document.getElementById("whiskL"), lead: 1.25, k: 0.055, d: 0.855, kick: 1.4, idle: 0.75, ph: 0 },
+      { el: document.getElementById("whiskR"), lead: 1.25, k: 0.049, d: 0.868, kick: 1.4, idle: 0.75, ph: 1.9 },
+      { el: document.getElementById("earL"),   lead: 0.42, k: 0.085, d: 0.80,  kick: 0.5, idle: 0.22, ph: 0.7 },
+      { el: document.getElementById("earR"),   lead: 0.42, k: 0.079, d: 0.81,  kick: 0.5, idle: 0.22, ph: 2.6 }
+    ].filter(function(o){ return o.el; });
+
+    for(var si = 0; si < springs.length; si++){ springs[si].a = 0; springs[si].v = 0; }
+
+    /* an ear flicks now and then, the way a real cat's does */
+    (function flick(){
+      setTimeout(function(){
+        var pick = springs[2 + Math.round(Math.random())];
+        if(pick) pick.v += (Math.random() < 0.5 ? -1 : 1) * (1.6 + Math.random() * 1.6);
+        flick();
+      }, 3200 + Math.random() * 5200);
+    })();
+
+    (function step(t){
+      swing *= 0.90;                                  /* the kick from a turning head decays */
+      for(var i = 0; i < springs.length; i++){
+        var sp = springs[i];
+        var target = headA * sp.lead
+                   + swing * sp.kick
+                   + Math.sin(t / 1150 + sp.ph) * sp.idle;   /* idle breathing */
+        sp.v += (target - sp.a) * sp.k;
+        sp.v *= sp.d;                                        /* damping: overshoot, then settle */
+        sp.a += sp.v;
+        sp.el.style.transform = "rotate(" + sp.a.toFixed(2) + "deg)";
+      }
+      requestAnimationFrame(step);
+    })(0);
   }
 
   /* blink */
@@ -1248,4 +1304,4 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
 })();
 </script>
 </body>
-</html>
+          </html>
