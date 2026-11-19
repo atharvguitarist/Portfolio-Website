@@ -1,75 +1,55 @@
-# 🌐 Portfolio Website
+# Atharv Gupta — Portfolio
 
-Welcome to my **Portfolio Website** repository! This project showcases my skills, projects, and experience using HTML, CSS, and JavaScript in a visually appealing and professional manner.
+Source for my personal portfolio site.
 
-## 📜 Table of Contents
+**Live:** https://atharvguitarist.github.io/Portfolio-Website
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+## About
 
-## 🌟 Introduction
+I'm an AI engineer based in Delhi NCR. I train the models, wire up the agents, and build the product around them. Engineer at IBM, independent consultant with 50+ deliveries, studying for an M.Tech in AI/ML at BITS Pilani.
 
-This Portfolio Website serves as a digital resume, highlighting my expertise, projects, and achievements. Whether you're a potential employer, collaborator, or simply curious about my work, this website provides a comprehensive overview of my capabilities.
+The site covers my AI work with measured results, my certifications, SmartPanel (a 7-inch ESP32-S3 home control panel I designed and wrote ~6,900 lines of firmware for), selected projects, and experience.
 
-## 🚀 Features
+## Technical notes
 
-- **About Me:** Introduce myself and provide an overview of my background.
-- **Portfolio:** Showcase my projects with descriptions, technologies used, and links.
-- **Skills:** Highlight my technical skills and competencies.
-- **Contact Form:** Enable visitors to reach out to me directly through a contact form.
-- **Responsive Design:** Ensure optimal viewing experience across devices.
+The whole site is a single self-contained `index.html` — no build step, no dependencies, no framework. Fonts load from Google Fonts; everything else, including the illustrations and the cursor-tracking cat, is inline SVG, CSS and vanilla JavaScript.
 
-## 🛠️ Installation
+| Item | Detail |
+| --- | --- |
+| Type | Bricolage Grotesque, IBM Plex Sans, IBM Plex Mono |
+| Size | ~60 KB, single file |
+| Hosting | GitHub Pages |
+| Accessibility | Keyboard focus states, reduced-motion support, responsive to mobile |
 
-### Steps
+### Keeping it current
 
-1. **Clone the Repository:**
-    ```bash
-    git clone https://github.com/atharvguitarist/portfolio-website.git
-    cd portfolio-website
-    ```
+Near the top of the script block there's a `PROFILE` object holding every number on the page — projects delivered, firmware lines, accuracy figures, and the certificate list. Edit those values and the page follows. Years of experience and role durations compute themselves from start dates, so they never go stale.
 
-2. **Open the Website:**
-   Simply open the `index.html` file in your web browser to view the portfolio.
+To link a certificate, upload the PDF to a repo, open it, press **Raw**, and paste that URL into the matching `pdf` field in `PROFILE.certificates`.
 
-## 🎯 Usage
+## Contact
 
-1. **Explore Sections:**
-   Navigate through different sections such as About Me, Portfolio, Skills, and Contact.
+Email: atharvg06@gmail.com
+GitHub: https://github.com/atharvguitarist
+LinkedIn: https://linkedin.com/in/atharvguitarist
 
-2. **View Projects:**
-   Click on project links to view details, screenshots, and live demos (if available).
 
-3. **Contact Me:**
-   Use the contact form to send inquiries or messages directly to my email.
 
-## 🤝 Contributing
 
-Contributions are welcome! If you have suggestions for improving my portfolio or spot any issues, feel free to:
 
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-branch`).
-3. Make your changes.
-4. Commit your changes (`git commit -m 'Enhance portfolio section'`).
-5. Push to the branch (`git push origin feature-branch`).
-6. Open a Pull Request.
 
-## 📄 License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## 📬 Contact
 
-For any questions or collaborations, feel free to reach out:
 
-- **GitHub Issues:** [https://github.com/atharvguitarist/portfolio-website/issues](https://github.com/atharvguitarist/portfolio-website/issues)
-- **Email:** atharvg06@gmail.com
 
----
 
-Thank you for visiting my Portfolio Website! I look forward to connecting with you and discussing potential opportunities.
+
+
+
+
+
+
+
+
+
