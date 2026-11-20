@@ -422,6 +422,204 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
   *,*::before,*::after{animation:none!important;transition:none!important}
   .rv{opacity:1;transform:none}
 }
+
+/* ══════════════════════════════════════════════════════════════
+   MOBILE — immersive layer. Full-bleed hero, scroll parallax,
+   snap carousels with focus falloff, staggered reveals.
+   ══════════════════════════════════════════════════════════════ */
+@media (max-width:680px){
+
+  /* ── rhythm tokens ── */
+  :root{--rail:0px; --mp:22px}
+  body{font-size:16px;line-height:1.65;overflow-x:hidden}
+  .wrap{padding:0 max(var(--mp),env(safe-area-inset-left))}
+
+  /* ── fixed nav: chip row, densifies on scroll ── */
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:70;margin:0;
+    padding:calc(12px + env(safe-area-inset-top)) var(--mp) 12px;
+    flex-wrap:nowrap;align-items:center;gap:0;
+    background:rgba(20,23,27,0);border-bottom:1px solid transparent;
+    -webkit-backdrop-filter:blur(0px);backdrop-filter:blur(0px);
+    transition:background .4s ease,padding .4s ease,border-color .4s ease,
+               -webkit-backdrop-filter .4s ease,backdrop-filter .4s ease}
+  .topbar.scrolled{padding:9px var(--mp);
+    background:rgba(17,20,24,.72);border-bottom-color:rgba(255,255,255,.08);
+    -webkit-backdrop-filter:blur(18px) saturate(140%);backdrop-filter:blur(18px) saturate(140%)}
+  .mark{font-size:19px;flex:none;margin-right:14px;transition:font-size .4s ease}
+  .topbar.scrolled .mark{font-size:16.5px}
+  .mark::after{display:none}
+  .nav{flex-wrap:nowrap;overflow-x:auto;gap:0;scrollbar-width:none;min-width:0;
+    -webkit-overflow-scrolling:touch;
+    -webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);
+            mask-image:linear-gradient(90deg,#000 85%,transparent)}
+  .nav::-webkit-scrollbar{display:none}
+  .nav a{flex:none;font-size:12px;line-height:1;padding:7px 13px;margin-right:7px;
+    border:1px solid rgba(255,255,255,.13);border-radius:999px;white-space:nowrap;
+    color:#C9CED3;background:rgba(255,255,255,.02);transition:color .25s,border-color .25s,background .25s}
+  .nav a::after{display:none}
+  .nav a.active{color:#13161A;background:var(--amber);border-color:var(--amber)}
+
+  /* ── film grain + drifting aurora over the dark sections ── */
+  #mgrain{position:fixed;inset:0;z-index:95;pointer-events:none;opacity:.028;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>");
+    background-size:160px 160px;mix-blend-mode:overlay}
+  .hero,.ai,.contact{position:relative;overflow:hidden;isolation:isolate}
+  .hero::before,.ai::before,.contact::before{content:"";position:absolute;inset:-12% 0 0;z-index:0;
+    pointer-events:none;will-change:transform;
+    transform:translate3d(0,var(--tx,0px),0);
+    background-image:radial-gradient(rgba(255,255,255,.065) 1px,transparent 1px);
+    background-size:23px 23px;
+    -webkit-mask-image:linear-gradient(180deg,#000 2%,transparent 62%);
+            mask-image:linear-gradient(180deg,#000 2%,transparent 62%)}
+  .hero>*,.ai>*,.contact>*{position:relative;z-index:1}
+  .aurora{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+  .aurora i{position:absolute;display:block;border-radius:50%;filter:blur(58px);opacity:.5}
+  .aurora i:nth-child(1){width:64vw;height:64vw;left:-22vw;top:-14vw;
+    background:radial-gradient(circle,rgba(31,53,214,.62),transparent 68%);
+    animation:drift1 22s ease-in-out infinite alternate}
+  .aurora i:nth-child(2){width:52vw;height:52vw;right:-20vw;top:26vh;
+    background:radial-gradient(circle,rgba(255,168,31,.3),transparent 70%);
+    animation:drift2 27s ease-in-out infinite alternate}
+  @keyframes drift1{to{transform:translate3d(16vw,10vh,0) scale(1.18)}}
+  @keyframes drift2{to{transform:translate3d(-13vw,-9vh,0) scale(1.14)}}
+
+  /* ── hero: first screen is one composed statement ── */
+  .hero{padding:0 0 70px}
+  .hero-grid{margin-top:0;gap:0}
+  .hero-grid>div:first-child{min-height:100svh;display:flex;flex-direction:column;
+    justify-content:center;padding:86px 0 0;will-change:transform,opacity}
+  .ident{margin:0 0 20px;font-size:10.6px;letter-spacing:.02em;padding:7px 13px;white-space:nowrap;
+    border-radius:999px;border:1px solid rgba(255,168,31,.32);
+    background:rgba(255,168,31,.07);color:#F3DCAE;display:inline-flex;align-self:flex-start}
+  .hero h1{font-size:clamp(2.55rem,12.4vw,3.6rem);line-height:.93;letter-spacing:-.038em}
+  .l2{background:linear-gradient(96deg,#E7E4DD 8%,#FFC369 42%,#9AA1A8 74%,#E7E4DD 96%);
+    background-size:260% 100%;-webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;animation:sheen 9s ease-in-out infinite}
+  @keyframes sheen{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+  .hero-sub{margin-top:22px;font-size:16px;line-height:1.7;max-width:none;color:#B8BEC5;
+    letter-spacing:.004em}
+  .hero-sub strong{color:#F0EDE6}
+  .hero-sub.mclamp{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+  .mmore{display:inline-flex;align-items:center;gap:7px;margin:12px 0 0;padding:0;
+    background:none;border:0;color:var(--amber);font-family:"IBM Plex Mono",monospace;
+    font-size:11.5px;letter-spacing:.09em;cursor:pointer}
+  .actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:30px}
+  .actions .btn{justify-content:center;padding:15px 8px;font-size:14.5px;border-radius:7px}
+  .actions .btn-p{grid-column:1/-1}
+
+  /* scroll cue */
+  .mcue{display:flex;align-items:center;gap:10px;margin-top:40px;
+    font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.22em;color:#6E757C}
+  .mcue s{display:block;width:40px;height:1px;background:linear-gradient(90deg,#6E757C,transparent);
+    position:relative;overflow:hidden;text-decoration:none}
+  .mcue s::after{content:"";position:absolute;inset:0;width:14px;background:var(--amber);
+    animation:cue 2.2s cubic-bezier(.6,0,.4,1) infinite}
+  @keyframes cue{0%{transform:translateX(-16px)}60%,100%{transform:translateX(44px)}}
+
+  /* ── stat grid ── */
+  .readout{max-width:none;display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:74px;
+    padding:0;background:rgba(255,255,255,.07);border-radius:14px;overflow:hidden;
+    transform:none!important;box-shadow:0 24px 60px rgba(0,0,0,.42)}
+  .readout-top{grid-column:1/-1;background:#15181C;padding:15px 17px;border-bottom:0}
+  .ro{display:flex;flex-direction:column-reverse;align-items:flex-start;justify-content:center;
+    gap:6px;background:#1B1F24;padding:17px;border-bottom:0;min-height:96px}
+  .ro-v{font-size:1.86rem;color:var(--amber);letter-spacing:-.025em;line-height:1}
+  .ro-k{font-size:11.4px;line-height:1.35;color:#878E95;letter-spacing:.01em}
+  .ro-note{grid-column:1/-1;background:#15181C;padding:12px 17px;text-align:left}
+
+  /* ── sections: breathing room ── */
+  .sect{padding:76px 0}
+  .ai{padding:72px 0 76px}
+  .flag{padding:76px 0}
+  .contact{padding:76px 0 36px}
+  .hero,.ai,.sect,.flag,.contact{scroll-margin-top:58px}
+  .sect-head,.flag-head{margin-bottom:32px}
+  .sect-num,.flag-tag{display:inline-block;font-size:10px;letter-spacing:.2em;
+    padding:6px 12px;border:1px solid currentColor;border-radius:999px;margin-bottom:16px;opacity:.8}
+  .flag-tag br{display:none}
+  .sect-title,.flag-head h2{font-size:clamp(2.1rem,9vw,2.9rem);line-height:1.0;
+    letter-spacing:-.035em;will-change:transform}
+  .sect-lede{font-size:15.5px;line-height:1.68;margin-top:14px;color:#55585C}
+  .ai .sect-lede{color:#9DA4AB}
+  .flag-kicker{font-size:12px;letter-spacing:.14em}
+  .flag-say{font-size:15.5px;line-height:1.7;color:var(--ink-2)}
+
+  /* ── reveals: longer, softer, staggered ── */
+  .rv{opacity:0;transform:translate3d(0,34px,0) scale(.978);
+    transition:opacity .82s cubic-bezier(.16,1,.3,1),transform .82s cubic-bezier(.16,1,.3,1)}
+  .rv.in{opacity:1;transform:none}
+
+  /* ── snap carousels ── */
+  .evi,.certs,.work{display:flex!important;grid-template-columns:none;
+    gap:14px;overflow-x:auto;overflow-y:visible;scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;perspective:none;
+    margin:0 calc(var(--mp)*-1);padding:14px var(--mp) 10px}
+  .evi::-webkit-scrollbar,.certs::-webkit-scrollbar,.work::-webkit-scrollbar{display:none}
+  .evi>*,.certs>*,.work>*{flex:0 0 84%;scroll-snap-align:center;min-width:0}
+  .mcard{transition:opacity .34s linear,transform .34s cubic-bezier(.2,.7,.3,1);
+    will-change:transform,opacity;transform-origin:50% 50%}
+  .mrail{opacity:0;transform:translate3d(0,30px,0);
+    transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+  .mrail.in{opacity:1;transform:none}
+
+  .mdots{display:flex;gap:7px;justify-content:center;margin-top:20px}
+  .mdots i{width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.2;
+    transition:opacity .3s,width .3s}
+  .mdots i.on{opacity:1;width:20px;border-radius:999px}
+  .ai .mdots{color:var(--amber)}
+  .sect .mdots{color:var(--blue)}
+
+  /* ── cards ── */
+  .ev,.proj,.cert{padding:22px 20px;border-radius:12px}
+  .ev h3{font-size:1.28rem;margin-bottom:14px}
+  .ev p,.proj p{font-size:15.2px;line-height:1.68;max-width:none}
+  .ev p{color:#B9C0C7}
+  .proj p{color:var(--ink-2)}
+  .proj h3{font-size:1.3rem}
+  .chip{font-size:10.8px;padding:4px 8px}
+  .stack{gap:7px}
+  /* no hover on touch — certificate detail is always open */
+  .cert-peek{max-height:none;opacity:1;overflow:visible}
+  .cert-cta{opacity:1;transform:none}
+  .cert-top{margin-bottom:16px}
+  .cert-date{margin-bottom:14px}
+  .mono-tile{width:42px;height:42px;font-size:16px;border-radius:8px}
+
+  /* ── stacked layout: drop the vertical parallax so nothing overlaps ── */
+  [data-par]{transform:none}
+  .device{transform:scale(var(--sc,1));transform-origin:50% 60%;will-change:transform}
+  .flag-body{gap:38px}
+
+  /* ── experience / research ── */
+  .xp-item{padding:0 0 32px 24px}
+  .xp-item ul{padding-left:18px;margin-top:15px}
+  .xp-item li{font-size:15.2px;line-height:1.65;margin-bottom:9px;max-width:none}
+  .xp-role{font-size:1.1rem}
+  .blk{gap:15px;padding:22px 0}
+  .blk-say{font-size:15px;line-height:1.65}
+  .facts{grid-template-columns:1fr;gap:0;font-size:14px}
+  .facts dt{margin-top:11px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+
+  /* ── the cat ── */
+  #pal{right:10px;bottom:env(safe-area-inset-bottom);z-index:40}
+  #palbtn{width:64px;height:64px}
+  #bubble{max-width:186px;font-size:12.4px;padding:11px 13px;
+    background:rgba(13,16,19,.95);border-color:#3A4147;
+    -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+
+  /* no hover tilt on touch */
+  .proj,.cert,.avatar{transform:none!important}
+}
+
+@media (max-width:680px) and (prefers-reduced-motion:reduce){
+  .aurora,#mgrain,.mcue{display:none}
+  .l2{animation:none;-webkit-text-fill-color:initial;color:var(--mute-d)}
+  .hero-grid>div:first-child{transform:none!important;opacity:1!important}
+  .mcard{opacity:1!important;transform:none!important}
+  .sect-title,.flag-head h2{transform:none!important}
+  .device{transform:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -1340,6 +1538,153 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
     document.addEventListener("mouseleave", function(){ ring.style.opacity = dot.style.opacity = "0"; });
     document.addEventListener("mouseenter", function(){ ring.style.opacity = dot.style.opacity = ""; });
   }
+})();
+</script>
+<script>
+/* ═══ mobile immersive layer: parallax, carousels, reveals ═══ */
+(function(){
+  var MQ = window.matchMedia("(max-width:680px)");
+  var RM = window.matchMedia("(prefers-reduced-motion:reduce)");
+  var built = false, items = [], rails = [], ticking = false, topbar = null;
+
+  function el(t,c){ var e=document.createElement(t); if(c) e.className=c; return e; }
+
+  /* ── one rAF loop drives every scroll-linked transform ── */
+  function frame(){
+    ticking = false;
+    var vh = window.innerHeight, y = window.scrollY;
+
+    if(topbar) topbar.classList.toggle("scrolled", y > 36);
+
+    for(var i=0;i<items.length;i++){
+      var it = items[i], r = it.el.getBoundingClientRect();
+      if(r.bottom < -240 || r.top > vh + 240) continue;
+
+      if(it.k === "hero"){
+        var p = Math.min(1, Math.max(0, y / (vh*0.82)));
+        it.el.style.transform = "translate3d(0," + (y*0.26).toFixed(1) + "px,0)";
+        it.el.style.opacity = (1 - p*0.94).toFixed(3);
+      } else if(it.k === "tex"){
+        it.el.style.setProperty("--tx", (-r.top*0.085).toFixed(1) + "px");
+      } else if(it.k === "drift"){
+        var q = (vh - r.top) / (vh + r.height);
+        it.el.style.transform = "translate3d(0," + ((0.5-q)*24).toFixed(1) + "px,0)";
+      } else if(it.k === "dev"){
+        var d = Math.min(1, Math.max(0, (vh - r.top) / (vh*0.92)));
+        it.el.style.setProperty("--sc", (0.9 + d*0.1).toFixed(3));
+      }
+    }
+  }
+  function onScroll(){ if(!ticking){ ticking = true; requestAnimationFrame(frame); } }
+
+  /* ── horizontal rail: snap dots + focus falloff on the off-centre cards ── */
+  function wireRail(sel){
+    var rail = document.querySelector(sel);
+    if(!rail || rail.children.length < 2) return;
+    var kids = Array.prototype.slice.call(rail.children);
+    var flat = RM.matches;
+    kids.forEach(function(k){ k.classList.add("mcard","in"); if(flat){ k.style.opacity="1"; k.style.transform="none"; } });
+
+    var dots = el("div","mdots");
+    kids.forEach(function(){ dots.appendChild(el("i")); });
+    rail.insertAdjacentElement("afterend", dots);
+
+    function paint(){
+      var rb = rail.getBoundingClientRect(), cx = rb.left + rb.width/2, best = 0, bd = 1e9;
+      if(flat){ for(var z=0;z<kids.length;z++){ var bz=kids[z].getBoundingClientRect();
+        var dz=Math.abs(bz.left+bz.width/2-cx); if(dz<bd){bd=dz;best=z;} }
+        for(var q=0;q<kids.length;q++) dots.children[q].classList.toggle("on", q===best); return; }
+      kids.forEach(function(k,i){
+        var b = k.getBoundingClientRect(), d = Math.abs(b.left + b.width/2 - cx);
+        if(d < bd){ bd = d; best = i; }
+        var f = Math.max(0, 1 - d/(rb.width*0.78));
+        k.style.opacity   = (0.4 + 0.6*f).toFixed(3);
+        k.style.transform = "scale(" + (0.925 + 0.075*f).toFixed(4) + ")";
+      });
+      for(var i=0;i<kids.length;i++) dots.children[i].classList.toggle("on", i===best);
+    }
+    var t = false;
+    rail.addEventListener("scroll", function(){
+      if(!t){ t = true; requestAnimationFrame(function(){ paint(); t = false; }); }
+    }, {passive:true});
+
+    /* the rail itself fades in; its cards are already lit */
+    rail.classList.add("mrail");
+    if("IntersectionObserver" in window){
+      new IntersectionObserver(function(e,o){
+        if(e[0].isIntersecting){ rail.classList.add("in"); o.disconnect(); }
+      }, {threshold:0.1}).observe(rail);
+    } else rail.classList.add("in");
+
+    rails.push(paint);
+    paint();
+  }
+
+  function build(){
+    if(built || !MQ.matches) return; built = true;
+    var reduced = RM.matches;
+
+    topbar = document.querySelector(".topbar");
+    document.body.appendChild(el("div")).id = "mgrain";
+
+    var hero = document.querySelector(".hero");
+    var inner = document.querySelector(".hero-grid > div");
+
+    if(hero && !reduced){
+      var a = el("div","aurora");
+      a.appendChild(el("i")); a.appendChild(el("i"));
+      hero.insertBefore(a, hero.firstChild);
+    }
+
+    /* hero paragraph: clamp with a toggle */
+    var sub = document.querySelector(".hero-sub");
+    if(sub){
+      sub.classList.add("mclamp");
+      var b = el("button","mmore"); b.type = "button"; b.textContent = "READ MORE +";
+      b.addEventListener("click", function(){
+        var clamped = sub.classList.toggle("mclamp");
+        b.textContent = clamped ? "READ MORE +" : "READ LESS −";
+      });
+      sub.insertAdjacentElement("afterend", b);
+    }
+
+    /* scroll cue under the hero actions */
+    var acts = document.querySelector(".actions");
+    if(acts && !reduced){
+      var cue = el("div","mcue");
+      cue.innerHTML = "<s></s>SCROLL";
+      acts.insertAdjacentElement("afterend", cue);
+    }
+
+    /* there is no hover on a phone — the certificate copy must say so */
+    var cl = document.querySelector("#certs .sect-lede");
+    if(cl) cl.textContent = "Three current certifications from Anthropic and Microsoft. "
+                          + "Swipe through them; tap a card to open the certificate.";
+
+    wireRail(".evi"); wireRail(".certs"); wireRail(".work");
+
+    if(reduced) return;
+
+    if(inner) items.push({el:inner, k:"hero"});
+    [".hero",".ai",".contact"].forEach(function(s){
+      var e = document.querySelector(s); if(e) items.push({el:e, k:"tex"});
+    });
+    document.querySelectorAll(".sect-title, .flag-head h2").forEach(function(e){
+      items.push({el:e, k:"drift"});
+    });
+    var dev = document.querySelector(".device");
+    if(dev) items.push({el:dev, k:"dev"});
+
+    window.addEventListener("scroll", onScroll, {passive:true});
+    window.addEventListener("resize", function(){
+      onScroll(); rails.forEach(function(f){ f(); });
+    }, {passive:true});
+    frame();
+  }
+
+  if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", build);
+  else build();
+  if(MQ.addEventListener) MQ.addEventListener("change", build);
 })();
 </script>
 </body>
