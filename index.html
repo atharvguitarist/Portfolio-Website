@@ -11,10 +11,10 @@
 <style>
 :root{
   --paper:#E7E4DD; --paper-2:#DCD8D0; --paper-3:#CFCAC0;
-  --ink:#15171A; --ink-2:#3A3C40;
-  --graphite:#1B1F23; --graphite-2:#262B31; --graphite-3:#343A41;
+  --ink:#15171A; --ink-2:#353A4E;
+  --graphite:#161B27; --graphite-2:#202838; --graphite-3:#303A52;
   --blue:#1F35D6; --amber:#FFA81F;
-  --mute:#7D7B73; --mute-d:#9AA1A8;
+  --mute:#5F6580; --mute-d:#9AA6BE;
   --gh:#24292F; --li:#0A66C2;
   --rail:92px; --maxw:1240px;
 }
@@ -70,7 +70,7 @@ p{margin:0 0 1em}
 .hero h1{font-size:clamp(2.1rem,5.3vw,4.3rem);line-height:0.98;max-width:17ch}
 .hero h1 .l2{color:var(--mute-d)}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.88fr);gap:64px;align-items:end;margin-top:60px;perspective:1500px}
-.hero-sub{margin-top:28px;max-width:56ch;color:#C3C7CB;font-size:1.07rem;line-height:1.62}
+.hero-sub{margin-top:28px;max-width:56ch;color:#C0C9DC;font-size:1.07rem;line-height:1.62}
 .hero-sub strong{color:var(--paper);font-weight:600}
 .actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:32px}
 .btn{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-size:15px;font-weight:500;padding:12px 20px;border-radius:4px;border:1px solid var(--graphite-3);color:var(--paper);background:transparent;transition:transform .2s,background .2s,border-color .2s,color .2s,box-shadow .2s}
@@ -83,7 +83,7 @@ p{margin:0 0 1em}
 
 .readout{
   position:relative;border:1px solid var(--graphite-3);border-radius:5px;
-  background:rgba(13,16,18,.5);padding:20px 22px 8px;min-width:0;
+  background:rgba(10,13,26,.5);padding:20px 22px 8px;min-width:0;
   --tilt:-8deg;
   transform:translate3d(0,var(--py,0px),0) rotateX(var(--rx,0deg)) rotateY(calc(var(--tilt) + var(--ry,0deg)));
   transition:transform .5s cubic-bezier(.2,.7,.3,1),box-shadow .5s,border-color .5s;
@@ -92,7 +92,7 @@ p{margin:0 0 1em}
 .readout:hover{
   transform:translate3d(0,var(--py,0px),0) rotateX(var(--rx,0deg)) rotateY(calc(var(--tilt) + var(--ry,0deg))) translateY(-7px) scale(1.012);
   box-shadow:0 34px 56px rgba(0,0,0,.42);
-  border-color:#454D56;
+  border-color:#4A5778;
 }
 .readout-top{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--mute-d);letter-spacing:.07em;padding-bottom:13px;border-bottom:1px solid var(--graphite-2)}
 .ro{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:baseline;padding:11.5px 0;border-bottom:1px solid var(--graphite-2);min-width:0}
@@ -107,7 +107,7 @@ p{margin:0 0 1em}
 .ai::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(760px 400px at 88% 112%,rgba(31,53,214,.26),transparent 68%)}
 .ai>*{position:relative;z-index:1}
 .ai .sect-num{color:var(--amber)}
-.ai .sect-lede{color:#AEB4BA}
+.ai .sect-lede{color:#A9B4CD}
 .evi{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;perspective:1500px}
 .ev{
   background:linear-gradient(168deg,rgba(255,255,255,.045),rgba(255,255,255,0) 60%),var(--graphite);
@@ -119,14 +119,14 @@ p{margin:0 0 1em}
 }
 .ev:hover{
   transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(-6px) translateZ(16px);
-  border-color:#49515A;box-shadow:0 26px 50px rgba(0,0,0,.42);
+  border-color:#4F5C80;box-shadow:0 26px 50px rgba(0,0,0,.42);
   background:linear-gradient(168deg,rgba(255,168,31,.08),rgba(255,255,255,0) 62%),var(--graphite-2);
 }
 .ev-ic{width:32px;height:32px;color:var(--amber);grid-row:span 2;transition:transform .45s cubic-bezier(.2,.7,.3,1)}
 .ev:hover .ev-ic{transform:scale(1.12) rotate(-5deg)}
 .ev h3{font-size:1.34rem;letter-spacing:-0.02em;margin-bottom:12px;color:var(--paper)}
 .ev-body{grid-column:2}
-.ev p{font-size:15.4px;color:#C3C9CF;line-height:1.62;margin-bottom:20px;max-width:40ch}
+.ev p{font-size:15.4px;color:#C0C9DC;line-height:1.62;margin-bottom:20px;max-width:40ch}
 .ev-proof{border-left:2px solid var(--amber);padding:3px 0 3px 15px;margin-bottom:18px}
 .ev-proof b{display:block;font-family:"IBM Plex Mono",monospace;font-size:1.44rem;color:var(--paper);font-weight:500;line-height:1.1}
 .ev-proof span{display:block;font-size:13px;color:var(--mute-d);margin-top:6px}
@@ -298,7 +298,7 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
 .contact h2{font-size:clamp(2.1rem,5.6vw,4.2rem);max-width:15ch}
 .contact-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.7fr);gap:40px;align-items:center}
 .avatar{justify-self:center}
-.contact-head p{color:#C3C7CB;max-width:50ch;margin:22px 0 0;font-size:1.06rem}
+.contact-head p{color:#C0C9DC;max-width:50ch;margin:22px 0 0;font-size:1.06rem}
 
 .avatar{position:relative;width:242px;height:242px;flex:none;display:grid;place-items:center}
 .avatar-ring{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
@@ -455,9 +455,9 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
   .nav::-webkit-scrollbar{display:none}
   .nav a{flex:none;font-size:12px;line-height:1;padding:7px 13px;margin-right:7px;
     border:1px solid rgba(255,255,255,.13);border-radius:999px;white-space:nowrap;
-    color:#C9CED3;background:rgba(255,255,255,.02);transition:color .25s,border-color .25s,background .25s}
+    color:#C7D0E2;background:rgba(255,255,255,.02);transition:color .25s,border-color .25s,background .25s}
   .nav a::after{display:none}
-  .nav a.active{color:#13161A;background:var(--amber);border-color:var(--amber)}
+  .nav a.active{color:#10141F;background:var(--amber);border-color:var(--amber)}
 
   /* ── film grain + drifting aurora over the dark sections ── */
   #mgrain{position:fixed;inset:0;z-index:95;pointer-events:none;opacity:.028;
@@ -492,11 +492,11 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
     border-radius:999px;border:1px solid rgba(255,168,31,.32);
     background:rgba(255,168,31,.07);color:#F3DCAE;display:inline-flex;align-self:flex-start}
   .hero h1{font-size:clamp(2.55rem,12.4vw,3.6rem);line-height:.93;letter-spacing:-.038em}
-  .l2{background:linear-gradient(96deg,#E7E4DD 8%,#FFC369 42%,#9AA1A8 74%,#E7E4DD 96%);
+  .l2{background:linear-gradient(96deg,#E7E4DD 8%,#FFC369 42%,#9AA6BE 74%,#E7E4DD 96%);
     background-size:260% 100%;-webkit-background-clip:text;background-clip:text;
     -webkit-text-fill-color:transparent;animation:sheen 9s ease-in-out infinite}
   @keyframes sheen{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-  .hero-sub{margin-top:22px;font-size:16px;line-height:1.7;max-width:none;color:#B8BEC5;
+  .hero-sub{margin-top:22px;font-size:16px;line-height:1.7;max-width:none;color:#B6C0D6;
     letter-spacing:.004em}
   .hero-sub strong{color:#F0EDE6}
   .hero-sub.mclamp{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
@@ -509,8 +509,8 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
 
   /* scroll cue */
   .mcue{display:flex;align-items:center;gap:10px;margin-top:40px;
-    font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.22em;color:#6E757C}
-  .mcue s{display:block;width:40px;height:1px;background:linear-gradient(90deg,#6E757C,transparent);
+    font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.22em;color:#6D7995}
+  .mcue s{display:block;width:40px;height:1px;background:linear-gradient(90deg,#6D7995,transparent);
     position:relative;overflow:hidden;text-decoration:none}
   .mcue s::after{content:"";position:absolute;inset:0;width:14px;background:var(--amber);
     animation:cue 2.2s cubic-bezier(.6,0,.4,1) infinite}
@@ -520,12 +520,12 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
   .readout{max-width:none;display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:74px;
     padding:0;background:rgba(255,255,255,.07);border-radius:14px;overflow:hidden;
     transform:none!important;box-shadow:0 24px 60px rgba(0,0,0,.42)}
-  .readout-top{grid-column:1/-1;background:#15181C;padding:15px 17px;border-bottom:0}
+  .readout-top{grid-column:1/-1;background:#11151F;padding:15px 17px;border-bottom:0}
   .ro{display:flex;flex-direction:column-reverse;align-items:flex-start;justify-content:center;
-    gap:6px;background:#1B1F24;padding:17px;border-bottom:0;min-height:96px}
+    gap:6px;background:#161B27;padding:17px;border-bottom:0;min-height:96px}
   .ro-v{font-size:1.86rem;color:var(--amber);letter-spacing:-.025em;line-height:1}
-  .ro-k{font-size:11.4px;line-height:1.35;color:#878E95;letter-spacing:.01em}
-  .ro-note{grid-column:1/-1;background:#15181C;padding:12px 17px;text-align:left}
+  .ro-k{font-size:11.4px;line-height:1.35;color:#8793AE;letter-spacing:.01em}
+  .ro-note{grid-column:1/-1;background:#11151F;padding:12px 17px;text-align:left}
 
   /* ── sections: breathing room ── */
   .sect{padding:76px 0}
@@ -539,8 +539,8 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
   .flag-tag br{display:none}
   .sect-title,.flag-head h2{font-size:clamp(2.1rem,9vw,2.9rem);line-height:1.0;
     letter-spacing:-.035em;will-change:transform}
-  .sect-lede{font-size:15.5px;line-height:1.68;margin-top:14px;color:#55585C}
-  .ai .sect-lede{color:#9DA4AB}
+  .sect-lede{font-size:15.5px;line-height:1.68;margin-top:14px;color:#4A5068}
+  .ai .sect-lede{color:#9CA8C2}
   .flag-kicker{font-size:12px;letter-spacing:.14em}
   .flag-say{font-size:15.5px;line-height:1.7;color:var(--ink-2)}
 
@@ -573,7 +573,7 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
   .ev,.proj,.cert{padding:22px 20px;border-radius:12px}
   .ev h3{font-size:1.28rem;margin-bottom:14px}
   .ev p,.proj p{font-size:15.2px;line-height:1.68;max-width:none}
-  .ev p{color:#B9C0C7}
+  .ev p{color:#B7C1D8}
   .proj p{color:var(--ink-2)}
   .proj h3{font-size:1.3rem}
   .chip{font-size:10.8px;padding:4px 8px}
@@ -604,7 +604,7 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
   #pal{right:10px;bottom:env(safe-area-inset-bottom);z-index:40}
   #palbtn{width:64px;height:64px}
   #bubble{max-width:186px;font-size:12.4px;padding:11px 13px;
-    background:rgba(13,16,19,.95);border-color:#3A4147;
+    background:rgba(13,16,19,.95);border-color:#363F58;
     -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 
   /* no hover tilt on touch */
@@ -620,6 +620,53 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
   .device{transform:none!important}
 }
 
+
+/* ════ ROUND 2: record backlight, smooth panel, alive screen ════ */
+.readout{--mx:50%;--my:30%}
+.readout>*{position:relative;z-index:1}
+.readout::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:0;opacity:0;transition:opacity .45s;
+  background:radial-gradient(380px circle at var(--mx) var(--my),rgba(130,155,255,.22),rgba(255,168,31,.07) 45%,transparent 72%)}
+.readout::after{content:"";position:absolute;inset:-14px;border-radius:16px;pointer-events:none;z-index:-1;opacity:0;transition:opacity .55s;
+  background:linear-gradient(135deg,rgba(60,90,255,.62),rgba(255,168,31,.30));filter:blur(34px)}
+.readout:hover{box-shadow:0 0 0 1px rgba(125,150,255,.42),0 22px 44px rgba(6,9,22,.38);border-color:#5C74D9;background:rgba(24,32,62,.62)}
+.readout:hover::before{opacity:1}
+.readout:hover::after{opacity:.5}
+
+.device-stage{position:relative}
+@media (pointer:fine) and (min-width:681px){
+  .device-stage::before{content:"";position:absolute;left:7%;right:7%;bottom:-2%;height:14%;border-radius:50%;
+    background:rgba(12,16,34,.34);filter:blur(24px);transform:translateY(var(--sh,0px)) scale(var(--shs,1));opacity:var(--sho,.8)}
+  .device{position:relative;z-index:1;filter:none!important;transition:none!important;will-change:transform;
+    transform:translate3d(0,calc(var(--py,0px) + var(--lift,0px)),0) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) scale(var(--zs,1))}
+  .device-wrap:hover .device{
+    transform:translate3d(0,calc(var(--py,0px) + var(--lift,0px)),0) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) scale(var(--zs,1))}
+}
+.dv-porch,.dv-autocard{opacity:0}
+.dv-ring{opacity:0}
+.dv-scan{opacity:0}
+@media (prefers-reduced-motion:no-preference){
+  .device *{transform-box:fill-box}
+  .dv-colon{animation:dvColon 2s steps(1,end) infinite}
+  @keyframes dvColon{0%{opacity:1}50%{opacity:.18}}
+  .dv-live{animation:pulse 2.4s ease-in-out infinite}
+  .dv-breathe{animation:dvBreathe 3.2s ease-in-out infinite}
+  @keyframes dvBreathe{0%,100%{opacity:1}50%{opacity:.62}}
+  .dv-ring{transform-origin:50% 50%;animation:dvRing 3.2s ease-out infinite}
+  @keyframes dvRing{0%{opacity:.55;transform:scale(1)}100%{opacity:0;transform:scale(2.3)}}
+  .dv-autotxt{animation:dvBreathe 4s ease-in-out infinite}
+  .dv-scan{animation:dvScan 8s linear infinite}
+  @keyframes dvScan{0%{opacity:0;transform:translateY(-70px)}8%{opacity:1}92%{opacity:1}100%{opacity:0;transform:translateY(360px)}}
+  .dv-bell{animation:dvBell 14s cubic-bezier(.3,.7,.3,1) infinite}
+  @keyframes dvBell{0%,40%{opacity:1;transform:translateX(0)}47%,93%{opacity:0;transform:translateX(-22px)}100%{opacity:1;transform:translateX(0)}}
+  .dv-autocard{animation:dvAuto 14s cubic-bezier(.3,.7,.3,1) infinite}
+  @keyframes dvAuto{0%,45%{opacity:0;transform:translateX(24px)}53%,85%{opacity:1;transform:translateX(0)}92%,100%{opacity:0;transform:translateX(-22px)}}
+  .dv-porch{animation:dvPorch 14s ease-in-out infinite}
+  @keyframes dvPorch{0%,54%{opacity:0}60%,86%{opacity:1}92%,100%{opacity:0}}
+  .device.dv-off *{animation-play-state:paused!important}
+}
+@media (prefers-reduced-motion:reduce){
+  .dv-bell{opacity:1}
+}
 </style>
 </head>
 <body>
@@ -764,37 +811,41 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
 
     <div class="flag-body">
       <div class="device-wrap rv">
-        <svg class="device" data-par="0.07" viewBox="0 0 640 420" role="img" aria-label="Illustration of the SmartPanel touchscreen interface showing the clock, weather, lighting controls and a doorbell alert">
+        <div class="device-stage"><svg class="device" data-par="0.07" viewBox="0 0 640 420" role="img" aria-label="Illustration of the SmartPanel touchscreen interface showing the clock, weather, lighting controls and a doorbell alert">
           <defs>
-            <linearGradient id="bez" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3A4046"/><stop offset="1" stop-color="#191C20"/></linearGradient>
-            <linearGradient id="scr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#14171B"/><stop offset="1" stop-color="#1E242B"/></linearGradient>
+            <linearGradient id="bez" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3B4358"/><stop offset="1" stop-color="#161A25"/></linearGradient>
+            <linearGradient id="scr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0F1420"/><stop offset="1" stop-color="#18213A"/></linearGradient>
+            <linearGradient id="scanG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8FA3FF" stop-opacity="0"/><stop offset=".5" stop-color="#8FA3FF" stop-opacity=".08"/><stop offset="1" stop-color="#8FA3FF" stop-opacity="0"/></linearGradient>
             <clipPath id="sc"><rect x="26" y="26" width="588" height="352" rx="7"/></clipPath>
           </defs>
           <rect x="2" y="2" width="636" height="400" rx="20" fill="url(#bez)"/>
-          <rect x="2.5" y="2.5" width="635" height="399" rx="19.5" fill="none" stroke="#4A525A"/>
+          <rect x="2.5" y="2.5" width="635" height="399" rx="19.5" fill="none" stroke="#4C566E"/>
           <rect x="26" y="26" width="588" height="352" rx="7" fill="url(#scr)"/>
           <g clip-path="url(#sc)">
             <circle cx="90" cy="56" r="150" fill="#1F35D6" opacity="0.14"/>
             <circle cx="580" cy="350" r="120" fill="#FFA81F" opacity="0.05"/>
-            <text x="48" y="64" fill="#8A929B" font-family="IBM Plex Mono, monospace" font-size="12">WED 20 NOV</text>
-            <circle cx="548" cy="59" r="3.2" fill="#FFA81F"/>
-            <text x="558" y="64" fill="#8A929B" font-family="IBM Plex Mono, monospace" font-size="12">LIVE</text>
-            <text x="440" y="64" fill="#8A929B" font-family="IBM Plex Mono, monospace" font-size="12">24°C</text>
-            <text x="48" y="148" fill="#E7E4DD" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="76" letter-spacing="-3">19:42</text>
-            <text x="48" y="176" fill="#8A929B" font-family="IBM Plex Sans, sans-serif" font-size="15">Clear · Noida</text>
-            <rect x="330" y="92" width="266" height="88" rx="6" fill="#262B31" stroke="#3B434B"/>
+            <text x="48" y="64" fill="#8F9BB6" font-family="IBM Plex Mono, monospace" font-size="12" id="dv-date">WED 20 NOV</text>
+            <circle class="dv-live" cx="548" cy="59" r="3.2" fill="#FFA81F"/>
+            <text x="558" y="64" fill="#8F9BB6" font-family="IBM Plex Mono, monospace" font-size="12">LIVE</text>
+            <text x="440" y="64" fill="#8F9BB6" font-family="IBM Plex Mono, monospace" font-size="12">24°C</text>
+            <text x="48" y="148" fill="#E7E4DD" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="76" letter-spacing="-3"><tspan id="dv-h">19</tspan><tspan class="dv-colon">:</tspan><tspan id="dv-m">42</tspan></text>
+            <text x="48" y="176" fill="#8F9BB6" font-family="IBM Plex Sans, sans-serif" font-size="15">Clear · Noida</text>
+            <g class="dv-bell"><rect x="330" y="92" width="266" height="88" rx="6" fill="#202838" stroke="#3C4762"/>
             <rect x="330" y="92" width="3" height="88" fill="#FFA81F"/>
             <text x="350" y="122" fill="#FFA81F" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="1">DOORBELL</text>
             <text x="350" y="146" fill="#E7E4DD" font-family="IBM Plex Sans, sans-serif" font-size="16" font-weight="600">Someone at the door</text>
-            <text x="350" y="166" fill="#8A929B" font-family="IBM Plex Sans, sans-serif" font-size="13">19:41 · pushed to 2 phones</text>
-            <g><rect x="48" y="212" width="128" height="128" rx="7" fill="#2C333A" stroke="#434B54"/><circle cx="80" cy="244" r="9" fill="#FFA81F"/><text x="68" y="300" fill="#E7E4DD" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600">Living</text><text x="68" y="320" fill="#FFA81F" font-family="IBM Plex Mono, monospace" font-size="12">ON</text></g>
-            <g><rect x="188" y="212" width="128" height="128" rx="7" fill="#22272D" stroke="#343B42"/><circle cx="220" cy="244" r="9" fill="none" stroke="#5B646D" stroke-width="2"/><text x="208" y="300" fill="#A7ADB4" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600">Porch</text><text x="208" y="320" fill="#6E767E" font-family="IBM Plex Mono, monospace" font-size="12">OFF</text></g>
-            <g><rect x="328" y="212" width="128" height="128" rx="7" fill="#22272D" stroke="#343B42"/><circle cx="360" cy="244" r="9" fill="none" stroke="#5B646D" stroke-width="2"/><text x="348" y="300" fill="#A7ADB4" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600">Stairs</text><text x="348" y="320" fill="#1F35D6" font-family="IBM Plex Mono, monospace" font-size="12">AUTO</text></g>
-            <g><rect x="468" y="212" width="128" height="128" rx="7" fill="#22272D" stroke="#343B42"/><path d="M492 238 h18 M492 246 h18 M492 254 h12" stroke="#5B646D" stroke-width="2" stroke-linecap="round"/><text x="488" y="300" fill="#A7ADB4" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600">Settings</text><text x="488" y="320" fill="#6E767E" font-family="IBM Plex Mono, monospace" font-size="12">PIN</text></g>
+            <text x="350" y="166" fill="#8F9BB6" font-family="IBM Plex Sans, sans-serif" font-size="13">19:41 · pushed to 2 phones</text></g>
+            <g class="dv-autocard"><rect x="330" y="92" width="266" height="88" rx="6" fill="#202838" stroke="#3C4762"/><rect x="330" y="92" width="3" height="88" fill="#1F35D6"/><text x="350" y="122" fill="#8FA3FF" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="1">AUTOMATION</text><text x="350" y="146" fill="#E7E4DD" font-family="IBM Plex Sans, sans-serif" font-size="16" font-weight="600">Porch light on</text><text x="350" y="166" fill="#8F9BB6" font-family="IBM Plex Sans, sans-serif" font-size="13">PIR motion · local, no cloud</text></g>
+            <g><rect x="48" y="212" width="128" height="128" rx="7" fill="#27304A" stroke="#475374"/><circle class="dv-ring" cx="80" cy="244" r="9" fill="none" stroke="#FFA81F" stroke-width="1.5"/><circle class="dv-breathe" cx="80" cy="244" r="9" fill="#FFA81F"/><text x="68" y="300" fill="#E7E4DD" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600">Living</text><text x="68" y="320" fill="#FFA81F" font-family="IBM Plex Mono, monospace" font-size="12">ON</text></g>
+            <g><rect x="188" y="212" width="128" height="128" rx="7" fill="#1C2334" stroke="#2E374F"/><circle cx="220" cy="244" r="9" fill="none" stroke="#5E6A88" stroke-width="2"/><text x="208" y="300" fill="#AAB4CC" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600">Porch</text><text x="208" y="320" fill="#707C98" font-family="IBM Plex Mono, monospace" font-size="12">OFF</text></g>
+            <g class="dv-porch"><rect x="188" y="212" width="128" height="128" rx="7" fill="#27304A" stroke="#475374"/><circle cx="220" cy="244" r="15" fill="#FFA81F" opacity=".16"/><circle cx="220" cy="244" r="9" fill="#FFA81F"/><text x="208" y="300" fill="#E7E4DD" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600">Porch</text><text x="208" y="320" fill="#FFA81F" font-family="IBM Plex Mono, monospace" font-size="12">ON</text></g>
+            <g><rect x="328" y="212" width="128" height="128" rx="7" fill="#1C2334" stroke="#2E374F"/><circle cx="360" cy="244" r="9" fill="none" stroke="#5E6A88" stroke-width="2"/><text x="348" y="300" fill="#AAB4CC" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600">Stairs</text><text x="348" y="320" fill="#6F86FF" font-family="IBM Plex Mono, monospace" font-size="12" class="dv-autotxt">AUTO</text></g>
+            <g><rect x="468" y="212" width="128" height="128" rx="7" fill="#1C2334" stroke="#2E374F"/><path d="M492 238 h18 M492 246 h18 M492 254 h12" stroke="#5E6A88" stroke-width="2" stroke-linecap="round"/><text x="488" y="300" fill="#AAB4CC" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600">Settings</text><text x="488" y="320" fill="#707C98" font-family="IBM Plex Mono, monospace" font-size="12">PIN</text></g>
+          <rect class="dv-scan" x="26" y="26" width="588" height="64" fill="url(#scanG)"/>
           </g>
-          <circle cx="320" cy="392" r="3" fill="#4A525A"/>
-          <rect x="248" y="408" width="144" height="8" rx="4" fill="#2A2F35"/>
-        </svg>
+          <circle cx="320" cy="392" r="3" fill="#4C566E"/>
+          <rect x="248" y="408" width="144" height="8" rx="4" fill="#232A3D"/>
+        </svg></div>
         <div class="cost" data-par="-0.035">
           <div class="cost-v">₹6,000</div>
           <div class="cost-k">Built for roughly a tenth of the ₹50,000–60,000 commercial equivalent.</div>
@@ -829,7 +880,7 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
   <div class="wrap">
     <div class="sect-head rv">
       <div class="sect-num">04 / WORK</div>
-      <h2 class="sect-title">Selected projects</h2>
+      <h2 class="sect-title">Projects</h2>
       <p class="sect-lede">Eight of the fifty-odd I have delivered. Every one shipped with authentication, tests, containers and monitoring, rather than as a notebook and a README. Open any card with a repository to read the code.</p>
     </div>
 
@@ -1024,7 +1075,7 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
         </div>
 
         <div class="blk">
-          <div class="mono-tile" style="background:#7D7B73" aria-hidden="true">CC</div>
+          <div class="mono-tile" style="background:#5F6580" aria-hidden="true">CC</div>
           <div class="blk-body">
             <h4>AWS versus Azure: a comparative study</h4>
             <div class="blk-org">Co-authored during the Wipro internship</div>
@@ -1073,7 +1124,7 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
         </div>
 
         <div class="blk">
-          <div class="mono-tile" style="background:#343A41" aria-hidden="true">LG</div>
+          <div class="mono-tile" style="background:#303A52" aria-hidden="true">LG</div>
           <div class="blk-body">
             <h4>Languages</h4>
             <dl class="facts">
@@ -1099,7 +1150,7 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
         <svg class="avatar-ring" viewBox="0 0 188 188" aria-hidden="true">
           <circle class="dash" cx="94" cy="94" r="87" fill="none" stroke="#FFA81F" stroke-width="1.5"
                   stroke-dasharray="3 9" stroke-linecap="round" opacity=".85"/>
-          <circle cx="94" cy="94" r="79" fill="none" stroke="#343A41" stroke-width="1"/>
+          <circle cx="94" cy="94" r="79" fill="none" stroke="#303A52" stroke-width="1"/>
           <circle cx="94" cy="94" r="79" fill="none" stroke="#1F35D6" stroke-width="2.5"
                   stroke-dasharray="130 370" stroke-linecap="round" transform="rotate(-62 94 94)"/>
         </svg>
@@ -1127,26 +1178,26 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
   <button id="palbtn" aria-label="Say hello to the scholar cat">
     <svg viewBox="0 0 100 100" aria-hidden="true">
       <g id="cat">
-        <path id="tail" d="M71 93 q25 -2 21 -23 q-4 -15 -16 -11" fill="none" stroke="#2A2F35" stroke-width="7.5" stroke-linecap="round"/>
-        <path d="M27 97 q-3 -27 10 -37 q13 -7 26 0 q13 10 10 37 z" fill="#1B1F23" stroke="#343A41" stroke-width="2" stroke-linejoin="round"/>
-        <path d="M50 66 q-8 10 -7 31 h14 q1 -21 -7 -31 z" fill="#242A30"/>
+        <path id="tail" d="M71 93 q25 -2 21 -23 q-4 -15 -16 -11" fill="none" stroke="#232A3D" stroke-width="7.5" stroke-linecap="round"/>
+        <path d="M27 97 q-3 -27 10 -37 q13 -7 26 0 q13 10 10 37 z" fill="#161B27" stroke="#303A52" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M50 66 q-8 10 -7 31 h14 q1 -21 -7 -31 z" fill="#1E2537"/>
         <path d="M41.5 65.5 L48 68 L46.2 74 Z" fill="#DCD8D0"/>
         <path d="M58.5 65.5 L52 68 L53.8 74 Z" fill="#DCD8D0"/>
         <path d="M45.8 66.5 L54.2 66.5 L52.7 73.5 L47.3 73.5 Z" fill="#E7E4DD" stroke="#BDB8AE" stroke-width=".7" stroke-linejoin="round"/>
         <path d="M47.3 73.5 L52.7 73.5 L51.3 87 L50 90.5 L48.7 87 Z" fill="#E7E4DD" stroke="#BDB8AE" stroke-width=".7" stroke-linejoin="round"/>
         <path d="M48.4 77 L51.6 77 M48.6 81 L51.4 81" stroke="#CFCAC0" stroke-width=".8" stroke-linecap="round"/>
-        <ellipse cx="38" cy="94" rx="8.5" ry="5" fill="#242A30" stroke="#3B434B" stroke-width="1.6"/>
-        <ellipse cx="62" cy="94" rx="8.5" ry="5" fill="#242A30" stroke="#3B434B" stroke-width="1.6"/>
+        <ellipse cx="38" cy="94" rx="8.5" ry="5" fill="#1E2537" stroke="#3C4762" stroke-width="1.6"/>
+        <ellipse cx="62" cy="94" rx="8.5" ry="5" fill="#1E2537" stroke="#3C4762" stroke-width="1.6"/>
         <g id="head">
           <g id="earL">
-            <path d="M30 51 l1 -22 l17 10 z" fill="#1B1F23" stroke="#343A41" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M30 51 l1 -22 l17 10 z" fill="#161B27" stroke="#303A52" stroke-width="2" stroke-linejoin="round"/>
             <path d="M34 47 l.7 -13 l10 6 z" fill="#FFA81F" opacity=".3"/>
           </g>
           <g id="earR">
-            <path d="M70 51 l-1 -22 l-17 10 z" fill="#1B1F23" stroke="#343A41" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M70 51 l-1 -22 l-17 10 z" fill="#161B27" stroke="#303A52" stroke-width="2" stroke-linejoin="round"/>
             <path d="M66 47 l-.7 -13 l-10 6 z" fill="#FFA81F" opacity=".3"/>
           </g>
-          <ellipse cx="50" cy="50" rx="24" ry="20" fill="#1B1F23" stroke="#343A41" stroke-width="2"/>
+          <ellipse cx="50" cy="50" rx="24" ry="20" fill="#161B27" stroke="#303A52" stroke-width="2"/>
           <g id="eyes">
             <ellipse cx="41" cy="48" rx="5.4" ry="6.2" fill="#FFA81F"/>
             <ellipse cx="59" cy="48" rx="5.4" ry="6.2" fill="#FFA81F"/>
@@ -1158,9 +1209,9 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
             <circle cx="60.9" cy="45.6" r="1.25" fill="#fff" opacity=".9"/>
           </g>
           <path d="M47.6 57.4 h4.8 l-2.4 2.7 z" fill="#C98693"/>
-          <path d="M50 60.1 q-3.2 2.8 -6 .5 M50 60.1 q3.2 2.8 6 .5" fill="none" stroke="#5B646D" stroke-width="1.5" stroke-linecap="round"/>
-          <g id="whiskL"><path d="M27 50 l-11 -3 M27 54 l-11 1.5 M27 57.5 l-10 5" stroke="#3B434B" stroke-width="1.3" stroke-linecap="round" fill="none"/></g>
-          <g id="whiskR"><path d="M73 50 l11 -3 M73 54 l11 1.5 M73 57.5 l10 5" stroke="#3B434B" stroke-width="1.3" stroke-linecap="round" fill="none"/></g>
+          <path d="M50 60.1 q-3.2 2.8 -6 .5 M50 60.1 q3.2 2.8 6 .5" fill="none" stroke="#5E6A88" stroke-width="1.5" stroke-linecap="round"/>
+          <g id="whiskL"><path d="M27 50 l-11 -3 M27 54 l-11 1.5 M27 57.5 l-10 5" stroke="#3C4762" stroke-width="1.3" stroke-linecap="round" fill="none"/></g>
+          <g id="whiskR"><path d="M73 50 l11 -3 M73 54 l11 1.5 M73 57.5 l10 5" stroke="#3C4762" stroke-width="1.3" stroke-linecap="round" fill="none"/></g>
         </g>
       </g>
     </svg>
@@ -1422,6 +1473,57 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
 
   if(!reduce) setTimeout(function(){ say(LINES[0]); li = 0; }, 2400);
 
+  /* ── idle chatter: if nobody scrolls, clicks or types for a while, the cat
+        comments on whichever section is on screen ── */
+  var IDLE = {
+    top:        ["Still here? Atharv is open to work: remote, hybrid or relocating.",
+                 "The RECORD card is live. The years tick over by themselves."],
+    ai:         ["Every one of these shipped behind an API, not in a notebook.",
+                 "Whisper in the browser, OCR on the phone, inference on an ESP32."],
+    certs:      ["Hover a card for what it covers. Click it to open the certificate.",
+                 "970 out of 1000 on the Claude developer exam. I did mention it."],
+    build:      ["That screen is a drawing, but the real one runs the house.",
+                 "About a tenth of the commercial price, and 6,900 lines of C++ of its own."],
+    work:       ["Cards with a repository open the real code. Go on.",
+                 "Eight of the fifty-odd, each shipped with tests and monitoring."],
+    experience: ["The durations here compute themselves from start dates.",
+                 "Production stacks, not notebooks. It is a theme."],
+    proof:      ["VerifyMe checks identity in 1.1 to 1.4 seconds a go.",
+                 "M.Tech in AI/ML at BITS Pilani, alongside the day job."],
+    contact:    ["Email is quickest: atharvg06@gmail.com.",
+                 "He answers fast. Faster than I can blink, nearly."]
+  };
+  var IDLE_ORDER = ["top","ai","certs","build","work","experience","proof","contact"];
+  var lastAct = Date.now(), lastSpoke = 0, idleCount = 0, lastMX = -999, lastMY = -999, lastIdle = "";
+  function actv(){ lastAct = Date.now(); idleCount = 0; }
+  ["scroll","wheel","keydown","touchstart","click"].forEach(function(n){
+    window.addEventListener(n, actv, {passive:true});
+  });
+  window.addEventListener("mousemove", function(ev){
+    if(Math.hypot(ev.clientX - lastMX, ev.clientY - lastMY) > 140){ lastMX = ev.clientX; lastMY = ev.clientY; actv(); }
+  }, {passive:true});
+  function sectionOnScreen(){
+    var mid = window.innerHeight * 0.45, hit = "top";
+    IDLE_ORDER.forEach(function(id){
+      var e = document.getElementById(id);
+      if(!e) return;
+      var r = e.getBoundingClientRect();
+      if(r.top <= mid && r.bottom > mid) hit = id;
+    });
+    return hit;
+  }
+  setInterval(function(){
+    if(document.hidden || !bubble || bubble.classList.contains("on")) return;
+    var now = Date.now();
+    if(now - lastAct < 8000 || now - lastSpoke < 15000 || idleCount >= 4) return;
+    var pool = IDLE[sectionOnScreen()] || LINES;
+    var pick = pool[Math.floor(Math.random() * pool.length)];
+    if(pick === lastIdle && pool.length > 1) pick = pool[(pool.indexOf(pick) + 1) % pool.length];
+    lastIdle = pick; lastSpoke = now; idleCount++;
+    say(pick);
+    swing += 1.8;
+  }, 1000);
+
   /* ── depth: scroll parallax and pointer tilt ── */
   if(!reduce){
     var pars = Array.prototype.slice.call(document.querySelectorAll("[data-par]"));
@@ -1481,6 +1583,8 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
           var py = (ev.clientY - r.top) / r.height - 0.5;
           ro.style.setProperty("--ry", (px * 9).toFixed(2) + "deg");
           ro.style.setProperty("--rx", (-py * 7).toFixed(2) + "deg");
+          ro.style.setProperty("--mx", ((px + 0.5) * 100).toFixed(1) + "%");
+          ro.style.setProperty("--my", ((py + 0.5) * 100).toFixed(1) + "%");
         }, {passive:true});
         ro.addEventListener("mouseleave", function(){
           ro.style.setProperty("--ry", "0deg");
@@ -1488,22 +1592,68 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
         });
       }
 
+      /* the panel: eased every frame, so it follows the pointer without lag */
       var dw = document.querySelector(".device-wrap");
       if(dw){
         var dev = dw.querySelector(".device");
+        var stage = dw.querySelector(".device-stage");
+        var dT = {ry:0, rx:0, lift:0, zs:1}, dC = {ry:0, rx:0, lift:0, zs:1}, dRaf = 0;
+        function dFrame(){
+          var busy = false;
+          for(var k in dT){
+            var d = dT[k] - dC[k];
+            dC[k] += d * 0.14;
+            if(Math.abs(d) > (k === "zs" ? 0.0004 : 0.02)) busy = true; else dC[k] = dT[k];
+          }
+          dev.style.setProperty("--ry", dC.ry.toFixed(2) + "deg");
+          dev.style.setProperty("--rx", dC.rx.toFixed(2) + "deg");
+          dev.style.setProperty("--lift", dC.lift.toFixed(1) + "px");
+          dev.style.setProperty("--zs", dC.zs.toFixed(4));
+          if(stage){
+            stage.style.setProperty("--sh", (-dC.lift * 0.6).toFixed(1) + "px");
+            stage.style.setProperty("--shs", (1 - dC.lift * 0.012).toFixed(3));
+            stage.style.setProperty("--sho", (0.8 + dC.lift * 0.015).toFixed(2));
+          }
+          dRaf = busy ? requestAnimationFrame(dFrame) : 0;
+        }
+        function dKick(){ if(!dRaf) dRaf = requestAnimationFrame(dFrame); }
         dw.addEventListener("mousemove", function(ev){
-          var r = dw.getBoundingClientRect();
-          var px = (ev.clientX - r.left) / r.width - 0.5;
-          var py = (ev.clientY - r.top) / r.height - 0.5;
-          dev.style.setProperty("--ry", (px * 9).toFixed(2) + "deg");
-          dev.style.setProperty("--rx", (-py * 7).toFixed(2) + "deg");
+          var r = dev.getBoundingClientRect();
+          var cx = (r.left + r.right) / 2, cy = (r.top + r.bottom) / 2;
+          var px = Math.max(-0.7, Math.min(0.7, (ev.clientX - cx) / (r.width || 1)));
+          var py = Math.max(-0.7, Math.min(0.7, (ev.clientY - cy) / (r.height || 1)));
+          dT.ry = px * 22; dT.rx = -py * 17; dT.lift = -9; dT.zs = 1.02;
+          dKick();
         }, {passive:true});
         dw.addEventListener("mouseleave", function(){
-          dev.style.setProperty("--ry", "0deg");
-          dev.style.setProperty("--rx", "0deg");
+          dT.ry = 0; dT.rx = 0; dT.lift = 0; dT.zs = 1; dKick();
         });
       }
+
     }
+
+    /* the panel's screen keeps real Noida time, and its animation pauses off-screen */
+    (function(){
+      var dvH = document.getElementById("dv-h"), dvM = document.getElementById("dv-m"), dvD = document.getElementById("dv-date");
+      var devEl = document.querySelector(".device");
+      function tick(){
+        try{
+          var now = new Date();
+          var t = new Intl.DateTimeFormat("en-GB", {timeZone:"Asia/Kolkata", hour:"2-digit", minute:"2-digit", hour12:false}).formatToParts(now);
+          var d = new Intl.DateTimeFormat("en-GB", {timeZone:"Asia/Kolkata", weekday:"short", day:"2-digit", month:"short"}).formatToParts(now);
+          function g(a,type){ for(var i=0;i<a.length;i++) if(a[i].type===type) return a[i].value; return ""; }
+          if(dvH) dvH.textContent = g(t,"hour");
+          if(dvM) dvM.textContent = g(t,"minute");
+          if(dvD) dvD.textContent = (g(d,"weekday") + " " + g(d,"day") + " " + g(d,"month")).toUpperCase();
+        }catch(e){}
+      }
+      tick(); setInterval(tick, 15000);
+      if(devEl && "IntersectionObserver" in window){
+        new IntersectionObserver(function(es){
+          devEl.classList.toggle("dv-off", !es[0].isIntersecting);
+        }).observe(devEl);
+      }
+    })();
   }
 
   /* ── portrait: fall back to initials until the photo exists ── */
