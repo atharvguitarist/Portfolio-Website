@@ -622,15 +622,14 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
 
 
 /* ════ ROUND 2: record backlight, smooth panel, alive screen ════ */
-.readout{--mx:50%;--my:30%}
 .readout>*{position:relative;z-index:1}
-.readout::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:0;opacity:0;transition:opacity .45s;
-  background:radial-gradient(380px circle at var(--mx) var(--my),rgba(130,155,255,.22),rgba(255,168,31,.07) 45%,transparent 72%)}
-.readout::after{content:"";position:absolute;inset:-14px;border-radius:16px;pointer-events:none;z-index:-1;opacity:0;transition:opacity .55s;
-  background:linear-gradient(135deg,rgba(60,90,255,.62),rgba(255,168,31,.30));filter:blur(34px)}
-.readout:hover{box-shadow:0 0 0 1px rgba(125,150,255,.42),0 22px 44px rgba(6,9,22,.38);border-color:#5C74D9;background:rgba(24,32,62,.62)}
+/* light sitting behind the card: ::before is the glow, ::after re-covers the card face so it only shows past the edges */
+.readout::before{content:"";position:absolute;inset:-46px -64px;border-radius:50%;pointer-events:none;z-index:-2;opacity:0;transition:opacity .6s ease;
+  background:radial-gradient(ellipse at center,rgba(95,125,255,.85) 0%,rgba(70,100,255,.5) 38%,rgba(255,168,31,.16) 62%,transparent 74%);filter:blur(30px)}
+.readout::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:-1;background:#0D1120;opacity:0;transition:opacity .6s ease}
+.readout:hover{box-shadow:0 0 0 1px rgba(120,150,255,.3);border-color:#4A5A9E}
 .readout:hover::before{opacity:1}
-.readout:hover::after{opacity:.5}
+.readout:hover::after{opacity:1}
 
 .device-stage{position:relative}
 @media (pointer:fine) and (min-width:681px){
@@ -643,7 +642,6 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
 }
 .dv-porch,.dv-autocard{opacity:0}
 .dv-ring{opacity:0}
-.dv-scan{opacity:0}
 @media (prefers-reduced-motion:no-preference){
   .device *{transform-box:fill-box}
   .dv-colon{animation:dvColon 2s steps(1,end) infinite}
@@ -654,8 +652,6 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
   .dv-ring{transform-origin:50% 50%;animation:dvRing 3.2s ease-out infinite}
   @keyframes dvRing{0%{opacity:.55;transform:scale(1)}100%{opacity:0;transform:scale(2.3)}}
   .dv-autotxt{animation:dvBreathe 4s ease-in-out infinite}
-  .dv-scan{animation:dvScan 8s linear infinite}
-  @keyframes dvScan{0%{opacity:0;transform:translateY(-70px)}8%{opacity:1}92%{opacity:1}100%{opacity:0;transform:translateY(360px)}}
   .dv-bell{animation:dvBell 14s cubic-bezier(.3,.7,.3,1) infinite}
   @keyframes dvBell{0%,40%{opacity:1;transform:translateX(0)}47%,93%{opacity:0;transform:translateX(-22px)}100%{opacity:1;transform:translateX(0)}}
   .dv-autocard{animation:dvAuto 14s cubic-bezier(.3,.7,.3,1) infinite}
@@ -815,8 +811,7 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
           <defs>
             <linearGradient id="bez" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3B4358"/><stop offset="1" stop-color="#161A25"/></linearGradient>
             <linearGradient id="scr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0F1420"/><stop offset="1" stop-color="#18213A"/></linearGradient>
-            <linearGradient id="scanG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8FA3FF" stop-opacity="0"/><stop offset=".5" stop-color="#8FA3FF" stop-opacity=".08"/><stop offset="1" stop-color="#8FA3FF" stop-opacity="0"/></linearGradient>
-            <clipPath id="sc"><rect x="26" y="26" width="588" height="352" rx="7"/></clipPath>
+                        <clipPath id="sc"><rect x="26" y="26" width="588" height="352" rx="7"/></clipPath>
           </defs>
           <rect x="2" y="2" width="636" height="400" rx="20" fill="url(#bez)"/>
           <rect x="2.5" y="2.5" width="635" height="399" rx="19.5" fill="none" stroke="#4C566E"/>
@@ -828,7 +823,7 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
             <circle class="dv-live" cx="548" cy="59" r="3.2" fill="#FFA81F"/>
             <text x="558" y="64" fill="#8F9BB6" font-family="IBM Plex Mono, monospace" font-size="12">LIVE</text>
             <text x="440" y="64" fill="#8F9BB6" font-family="IBM Plex Mono, monospace" font-size="12">24°C</text>
-            <text x="48" y="148" fill="#E7E4DD" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="76" letter-spacing="-3"><tspan id="dv-h">19</tspan><tspan class="dv-colon">:</tspan><tspan id="dv-m">42</tspan></text>
+            <text x="48" y="148" fill="#E7E4DD" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="72" textLength="86" lengthAdjust="spacingAndGlyphs" id="dv-h">19</text><text x="140" y="144" fill="#E7E4DD" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="72" class="dv-colon">:</text><text x="162" y="148" fill="#E7E4DD" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="72" textLength="86" lengthAdjust="spacingAndGlyphs" id="dv-m">42</text>
             <text x="48" y="176" fill="#8F9BB6" font-family="IBM Plex Sans, sans-serif" font-size="15">Clear · Noida</text>
             <g class="dv-bell"><rect x="330" y="92" width="266" height="88" rx="6" fill="#202838" stroke="#3C4762"/>
             <rect x="330" y="92" width="3" height="88" fill="#FFA81F"/>
@@ -841,7 +836,6 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
             <g class="dv-porch"><rect x="188" y="212" width="128" height="128" rx="7" fill="#27304A" stroke="#475374"/><circle cx="220" cy="244" r="15" fill="#FFA81F" opacity=".16"/><circle cx="220" cy="244" r="9" fill="#FFA81F"/><text x="208" y="300" fill="#E7E4DD" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600">Porch</text><text x="208" y="320" fill="#FFA81F" font-family="IBM Plex Mono, monospace" font-size="12">ON</text></g>
             <g><rect x="328" y="212" width="128" height="128" rx="7" fill="#1C2334" stroke="#2E374F"/><circle cx="360" cy="244" r="9" fill="none" stroke="#5E6A88" stroke-width="2"/><text x="348" y="300" fill="#AAB4CC" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600">Stairs</text><text x="348" y="320" fill="#6F86FF" font-family="IBM Plex Mono, monospace" font-size="12" class="dv-autotxt">AUTO</text></g>
             <g><rect x="468" y="212" width="128" height="128" rx="7" fill="#1C2334" stroke="#2E374F"/><path d="M492 238 h18 M492 246 h18 M492 254 h12" stroke="#5E6A88" stroke-width="2" stroke-linecap="round"/><text x="488" y="300" fill="#AAB4CC" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600">Settings</text><text x="488" y="320" fill="#707C98" font-family="IBM Plex Mono, monospace" font-size="12">PIN</text></g>
-          <rect class="dv-scan" x="26" y="26" width="588" height="64" fill="url(#scanG)"/>
           </g>
           <circle cx="320" cy="392" r="3" fill="#4C566E"/>
           <rect x="248" y="408" width="144" height="8" rx="4" fill="#232A3D"/>
@@ -1583,8 +1577,6 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
           var py = (ev.clientY - r.top) / r.height - 0.5;
           ro.style.setProperty("--ry", (px * 9).toFixed(2) + "deg");
           ro.style.setProperty("--rx", (-py * 7).toFixed(2) + "deg");
-          ro.style.setProperty("--mx", ((px + 0.5) * 100).toFixed(1) + "%");
-          ro.style.setProperty("--my", ((py + 0.5) * 100).toFixed(1) + "%");
         }, {passive:true});
         ro.addEventListener("mouseleave", function(){
           ro.style.setProperty("--ry", "0deg");
