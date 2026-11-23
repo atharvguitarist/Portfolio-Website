@@ -624,12 +624,11 @@ body.cursor-on #cur,body.cursor-on #curdot{opacity:1}
 /* ════ ROUND 2: record backlight, smooth panel, alive screen ════ */
 .readout>*{position:relative;z-index:1}
 /* light sitting behind the card: ::before is the glow, ::after re-covers the card face so it only shows past the edges */
-.readout::before{content:"";position:absolute;inset:-46px -64px;border-radius:50%;pointer-events:none;z-index:-2;opacity:0;transition:opacity .6s ease;
-  background:radial-gradient(ellipse at center,rgba(95,125,255,.85) 0%,rgba(70,100,255,.5) 38%,rgba(255,168,31,.16) 62%,transparent 74%);filter:blur(30px)}
-.readout::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:-1;background:#0D1120;opacity:0;transition:opacity .6s ease}
+.readout::before{content:"";position:absolute;inset:-60px -84px;border-radius:50%;pointer-events:none;z-index:-2;opacity:0;transition:opacity .6s ease;
+  background:radial-gradient(ellipse at center,rgba(105,135,255,.95) 0%,rgba(80,110,255,.8) 52%,rgba(70,100,255,.42) 68%,rgba(255,168,31,.12) 78%,transparent 88%);filter:blur(26px)}
+.readout::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:-1;background:#0D1120}
 .readout:hover{box-shadow:0 0 0 1px rgba(120,150,255,.3);border-color:#4A5A9E}
 .readout:hover::before{opacity:1}
-.readout:hover::after{opacity:1}
 
 .device-stage{position:relative}
 @media (pointer:fine) and (min-width:681px){
